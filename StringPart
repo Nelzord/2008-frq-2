@@ -1,0 +1,29 @@
+
+public class StringPart {
+	int strStart;
+	int strLength;
+	
+	public StringPart (int start, int length)
+	{
+		strStart = start;
+		strLength = length;
+	
+	}
+	
+	public StringPart ()
+	{
+		strStart = 0;
+		strLength = 0;
+	
+	}
+	
+	public int getStart()
+	{
+		return strStart;
+	}
+	
+	public int getLength()
+	{
+		return strLength;
+	}
+}
