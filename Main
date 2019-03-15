@@ -1,5 +1,5 @@
 
-//Look at the ReadME file first for answers.
+//Look at the README file first for answers.
 import java.util.*;
 public class Main {
 	public static void main(String[] ars){
