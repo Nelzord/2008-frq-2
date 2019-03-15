@@ -1,0 +1,70 @@
+import java.util.ArrayList;
+
+public class StringCoder {
+private String masterString;
+	
+	public StringCoder (String master)
+	{
+		
+		masterString = master;
+	}
+	
+	public String decodeString (ArrayList<StringPart> parts)
+	{
+		String newStr = "";
+		for (StringPart part : parts) {
+			newStr = newStr + masterString.substring(part.getStart(), (part.getStart()+part.getLength()));
+		
+	}
+		
+					
+		return newStr;
+	}
+	
+	private StringPart findPart (String str)
+	{
+		
+	    int count = 0, loc = 0;
+		boolean found = false;
+		String newStr;
+		StringPart sPart = new StringPart();
+		
+		// pre-condition - all characters in String str will appear in the masterString
+		
+		while (found == false && count < str.length())   // second condition shouldn't be needed due to the pre-condition
+		{
+			newStr = str.substring(0,str.length()-count);
+		    loc = masterString.indexOf(newStr);
+		    if (loc == -1)
+			{
+				count++;
+			}
+			else
+			{	
+				sPart = new StringPart(loc, str.length() - count);		
+				found = true;
+			}
+		}	
+		return sPart;
+	}
+	
+	public ArrayList<StringPart> encodeString (String word)
+	{
+		ArrayList<StringPart> sPartList = new ArrayList<StringPart>();
+		String x = word;
+		while (x.length()>0){
+			StringPart y = findPart(x);
+			sPartList.add(y);
+			x = x.substring(y.getLength());
+		}
+		
+		
+		return sPartList;
+		
+	}
+	
+	
+	
+	
+
+}
